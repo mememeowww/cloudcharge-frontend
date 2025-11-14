@@ -9,10 +9,10 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 // 🔹 AUTH ENDPOINTS
 export const registerUser = (userData) =>
-  axios.post(`${API_URL}/auth/register`, userData);
+  axios.post(`${API_URL}/api/auth/register`, userData);
 
 export const loginUser = (userData) =>
-  axios.post(`${API_URL}/auth/login`, userData);
+  axios.post(`${API_URL}/api/auth/login`, userData);
 
 // 🔹 BATTERY ENDPOINT
 export const getBattery = (token) =>
