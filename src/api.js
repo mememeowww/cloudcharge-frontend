@@ -4,26 +4,25 @@ console.log("VITE_API_URL =>", import.meta.env.VITE_API_URL);
 
 import axios from "axios";
 
-// ✅ Correct way to access Vite env variables
 const API_URL = import.meta.env.VITE_API_URL;
 
-// 🔹 AUTH ENDPOINTS
+// ---------- AUTH ----------
 export const registerUser = (userData) =>
   axios.post(`${API_URL}/api/auth/register`, userData);
 
 export const loginUser = (userData) =>
   axios.post(`${API_URL}/api/auth/login`, userData);
 
-// 🔹 BATTERY ENDPOINT
+// ---------- BATTERY ----------
 export const getBattery = (token) =>
-  axios.get(`${API_URL}/battery`, {
+  axios.get(`${API_URL}/api/battery`, {
     headers: { Authorization: `Bearer ${token}` },
   });
 
-// 🔹 USER PROFILE ENDPOINT
+// ---------- USER ----------
 export const getUserProfile = async () => {
   const token = localStorage.getItem("token");
-  return axios.get(`${API_URL}/user/profile`, {
+  return axios.get(`${API_URL}/api/user/profile`, {
     headers: { Authorization: `Bearer ${token}` },
   });
 };
